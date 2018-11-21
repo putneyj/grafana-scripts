@@ -1,13 +1,15 @@
 #!/bin/bash
 
-command python3 $PWD/sonarr.py --missing --upcoming --queue
-command python3 $PWD/radarr.py --missing_avl --queue
-command python3 $PWD/ombi.py --total --counts
-command python3 $PWD/tautulli.py
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && DIR )"
+
+command python3 $DIR/sonarr.py --missing --upcoming --queue
+command python3 $DIR/radarr.py --missing_avl --queue
+command python3 $DIR/ombi.py --total --counts
+command python3 $DIR/tautulli.py
 
 sleep 30
 
-command python3 $PWD/sonarr.py --missing --upcoming --queue
-command python3 $PWD/radarr.py --missing_avl --queue
-command python3 $PWD/ombi.py --total --counts
-command python3 $PWD/tautulli.py
+command python3 $DIR/sonarr.py --missing --upcoming --queue
+command python3 $DIR/radarr.py --missing_avl --queue
+command python3 $DIR/ombi.py --total --counts
+command python3 $DIR/tautulli.py
