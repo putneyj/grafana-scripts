@@ -38,9 +38,9 @@ def get_missing_movies():
         for movie, id in missing:
             influx_payload.append(
                 {
-                    "measurement": "Radarr",
+                    "measurement": "radarr_missing",
                     "tags": {
-                        "type": "Missing",
+                        "type": "missing",
                         "tmdbId": id,
                         "server": server_id
                     },
@@ -77,9 +77,9 @@ def get_missing_avl():
         for movie, id in missing:
             influx_payload.append(
                 {
-                    "measurement": "Radarr",
+                    "measurement": "radarr_missing_available",
                     "tags": {
-                        "type": "Missing_Available",
+                        "type": "missing_available",
                         "tmdbId": id,
                         "server": server_id
                     },
@@ -121,9 +121,9 @@ def get_queue_movies():
         for movie, id in queue:
             influx_payload.append(
                 {
-                    "measurement": "Radarr",
+                    "measurement": "radarr_queue",
                     "tags": {
-                        "type": "Queue",
+                        "type": "queue",
                         "tmdbId": id,
                         "server": server_id
                     },

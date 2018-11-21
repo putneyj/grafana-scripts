@@ -55,7 +55,7 @@ def geo_lookup(ipaddress):
 
 INFLUX_PAYLOAD = [
     {
-        "measurement": "Tautulli",
+        "measurement": "tautulli_stream_counts",
         "tags": {
             "type": "stream_count"
         },
@@ -136,9 +136,9 @@ for session in SESSIONS.keys():
 
     INFLUX_PAYLOAD.append(
         {
-            "measurement": "Tautulli",
+            "measurement": "tautulli_sessions",
             "tags": {
-                "type": "Session",
+                "type": "session",
                 "session_id": SESSIONS[session]['session_id'],
                 "name": SESSIONS[session]['friendly_name'],
                 "title": SESSIONS[session]['full_title'],

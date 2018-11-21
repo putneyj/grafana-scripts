@@ -33,9 +33,9 @@ def get_total_requests():
 
     influx_payload = [
         {
-            "measurement": "Ombi",
+            "measurement": "ombi_request_totals",
             "tags": {
-                "type": "Request_Total"
+                "type": "request_total"
             },
             "time": now_iso(),
             "fields": {
@@ -50,9 +50,9 @@ def get_request_counts():
 
     influx_payload = [
         {
-        "measurement": "Ombi",
+        "measurement": "ombi_request_counts",
             "tags": {
-                "type": "Request_Counts"
+                "type": "request_counts"
             },
             "time": now_iso(),
             "fields": {

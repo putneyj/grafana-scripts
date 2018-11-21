@@ -45,9 +45,9 @@ def get_all_missing_shows():
         for series_title, sxe, id, episode_title in missing:
             influx_payload.append(
                 {
-                    "measurement": "Sonarr",
+                    "measurement": "sonarr_missing",
                     "tags": {
-                        "type": "Missing",
+                        "type": "missing",
                         "sonarrId": id,
                         "server": server_id
                     },
@@ -96,9 +96,9 @@ def get_missing_shows(days_past):
         for series_title, sxe, air_date, id in missing:
             influx_payload.append(
                 {
-                    "measurement": "Sonarr",
+                    "measurement": "sonarr_missing_days",
                     "tags": {
-                        "type": "Missing_Days",
+                        "type": "missing_days",
                         "sonarrId": id,
                         "server": server_id
                     },
@@ -142,9 +142,9 @@ def get_upcoming_shows():
         for series_title, sxe, id, episode_title, air_date  in upcoming:
             influx_payload.append(
                 {
-                    "measurement": "Sonarr",
+                    "measurement": "sonarr_soon",
                     "tags": {
-                         "type": "Soon",
+                         "type": "soon",
                          "sonarrId": id,
                          "server": server_id
                      },
@@ -195,9 +195,9 @@ def get_future_shows(future_days):
         for series_title, dl_status, sxe, episode_title, air_date, id in air_days:
             influx_payload.append(
                 {
-                    "measurement": "Sonarr",
+                    "measurement": "sonarr_future",
                     "tags": {
-                        "type": "Future",
+                        "type": "future",
                         "sonarrId": id,
                         "server": server_id
                     },
@@ -251,9 +251,9 @@ def get_queue_shows():
         for series_title, episode_title, protocol, protocol_id, sxe, id in queue:
             influx_payload.append(
                 {
-                    "measurement": "Sonarr",
+                    "measurement": "sonarr_queue",
                     "tags": {
-                        "type": "Queue",
+                        "type": "queue",
                         "sonarrId": id,
                         "server": server_id
 
