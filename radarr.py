@@ -155,17 +155,17 @@ if __name__ == "__main__":
     parser.add_argument("--queue",  action='store_true',
         help='Get movies in queue')
 
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
     opts = parser.parse_args()
 
     if opts.missing:
         influx_sender(get_missing_movies())
 
-    elif opts.missing_avl:
+    if opts.missing_avl:
         influx_sender(get_missing_avl())
 
-    elif opts.queue:
+    if opts.queue:
         influx_sender(get_queue_movies())
-
-    elif len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)

@@ -74,14 +74,14 @@ if __name__ == "__main__":
     parser.add_argument("--counts",  action='store_true',
         help='Get the count of pending, approved, and available requests')
 
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
     opts = parser.parse_args()
 
     if opts.total:
         influx_sender(get_total_requests())
 
-    elif opts.counts:
+    if opts.counts:
         influx_sender(get_request_counts())
-
-    elif len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)

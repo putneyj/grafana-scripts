@@ -295,23 +295,23 @@ if __name__ == "__main__":
     parser.add_argument("--queue", action='store_true',
         help='Get TV shows in queue')
 
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
     opts = parser.parse_args()
 
     if opts.missing:
         influx_sender(get_all_missing_shows())
 
-    elif opts.missing_days:
+    if opts.missing_days:
         influx_sender(get_missing_shows(opts.missing_days))
 
-    elif opts.upcoming:
+    if opts.upcoming:
         influx_sender(get_upcoming_shows())
 
-    elif opts.future:
+    if opts.future:
         influx_sender(get_future_shows(opts.future))
 
-    elif opts.queue:
+    if opts.queue:
         influx_sender(get_queue_shows())
-
-    elif len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)
